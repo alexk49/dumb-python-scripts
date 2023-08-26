@@ -18,17 +18,20 @@ def weather_check(weatherType):
 	    return ("Bring a hat")
 
 todaysTemp = soup.select(".wr-value--temperature--c")[0]
+
 todaysTemp = int(todaysTemp.text[:-1])
 
 def temp_check(todaysTemp):
 	if todaysTemp < 10:
-	    return("and bring a coat")
+	    return ("and bring a coat")
 	elif todaysTemp < 15:
-	    return("and bring a jacket")
+	    return ("and bring a jacket")
 	elif todaysTemp <= 20:
-	    return("and bring a light jumper")
+	    return ("and bring a light jumper")
+	elif todaysTemp <= 25:
+		return ("and consider wearing shorts and don't forget sun screen")
 	elif todaysTemp > 25:
-	    return("and it's going to be hot hot hot")
+	    return ("and it's going to be hot hot hot, and don't forget sun screen")
 
 waterproof = weather_check(weatherType) 
 layers = temp_check(todaysTemp)
