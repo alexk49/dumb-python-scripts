@@ -3,9 +3,9 @@ import sqlite3
 from bottle import route, run, template, static_file
 
 
-@route("/static/<filename>")
+@route("/static/<filename:path>")
 def server_static(filename):
-    return static_file(filename, root="/static")
+    return static_file(filename, root="static")
 
 
 @route("/picnic")
