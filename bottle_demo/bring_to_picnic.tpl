@@ -5,6 +5,7 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/styles.css" rel="stylesheet" />
+    <script src="static/script.js"></script>
 </head>
 <body>
 <h1>Things to bring to our picnic</h1>
