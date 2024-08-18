@@ -1,3 +1,9 @@
+"""
+
+anorak.py
+
+Used to get weather for day and advised if an anorak is needed
+"""
 import requests 
 import bs4
 import lxml 

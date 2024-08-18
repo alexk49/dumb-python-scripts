@@ -1,4 +1,7 @@
-'''
+"""
+
+find_pi_with_py using different potential pi finding methods
+
 Potential methods include:
 
 Gregory-Leibniz series 
@@ -11,85 +14,93 @@ Nilakantha series
 formula to calculate pi: 
 x * sin(180 / x). For this to work, make sure your calculator is set to Degrees. The reason this is called a Limit is because the result of it is 'limited' to pi. As you increase your number x, the result will get closer and closer to the value of pi. 
 
-'''
+"""
 import math
 
 
 def how_many_decimals():
-	user_input = ''
-	while user_input.isdigit() == False:
-		user_input = input("How many decimals would you like pi to have?\n")
-	if user_input.isdigit():
-		user_input = int(user_input)
-		return user_input
+    user_input = ""
+    while user_input.isdigit() == False:
+        user_input = input("How many decimals would you like pi to have?\n")
+    if user_input.isdigit():
+        user_input = int(user_input)
+        return user_input
 
-def print_setup(decimals,method):
-	decimals = str(decimals)
-	print("Oh, okay, we'll find pi to {} decimal places, and we're going to use the {} method".format(decimals,method))
+
+def print_setup(decimals, method):
+    decimals = str(decimals)
+    print("Oh, okay, we'll find pi to {} decimal places, and we're going to use the {} method".format(decimals, method))
 
 
 def series_limit():
-	series_limit = ''
-	while series_limit.isdigit() == False:
-		series_limit = input(("How far would you like to go in the series?\nThe higher your choice the more accurate we'll be\nDon't get too carried away though, we haven't got all day\n"))
-	if series_limit.isdigit():
-		return int(series_limit)
+    series_limit = ""
+    while series_limit.isdigit() == False:
+        series_limit = input(
+            (
+                "How far would you like to go in the series?\nThe higher your choice the more accurate we'll be\nDon't get too carried away though, we haven't got all day\n"
+            )
+        )
+    if series_limit.isdigit():
+        return int(series_limit)
+
 
 def gregory_leibniz_series(series_limit):
-	total = 0.0
-	term = 1.0
-	for i in range (1,series_limit+1):
-		denom = 2*i-1
-		total += term/denom
-		term = -term
-	pi = 4*total
-	return pi
-		
+    total = 0.0
+    term = 1.0
+    for i in range(1, series_limit + 1):
+        denom = 2 * i - 1
+        total += term / denom
+        term = -term
+    pi = 4 * total
+    return pi
+
+
 def nilakantha_series(series_limit):
-	pi = 3
-	sign = 1
-	n = 2
-	for x in range(series_limit+1):
-	    pi = pi + (sign*(4/((n)*(n+1)*(n+2))))
-	    #for addition and subtraction of alternate terms
-	    sign = sign*(-1)
-	    #Increment by 2 according to formula
-	    n = n + 2
-	return pi
+    pi = 3
+    sign = 1
+    n = 2
+    for x in range(series_limit + 1):
+        pi = pi + (sign * (4 / ((n) * (n + 1) * (n + 2))))
+        # for addition and subtraction of alternate terms
+        sign = sign * (-1)
+        # Increment by 2 according to formula
+        n = n + 2
+    return pi
+
 
 method = input("How would you like me to find pi?\nCheat method?\nGregory-Leibniz series?\nNilakantha?\n")
 
-if method[0].lower() == 'c':
-	print("Okay, we'll cheat!")
-	decimals = how_many_decimals()
-	
-	print_setup(decimals,method)
+if method[0].lower() == "c":
+    print("Okay, we'll cheat!")
+    decimals = how_many_decimals()
 
-	print("Here you go:")
-	print(round(math.pi,decimals))
+    print_setup(decimals, method)
 
-if method[0].lower() == 'g':
-	print("Okay, we'll use the Gregory-Leibniz series... This can take a while...")
+    print("Here you go:")
+    print(round(math.pi, decimals))
 
-	decimals = how_many_decimals()
-	print_setup(decimals,method)
+if method[0].lower() == "g":
+    print("Okay, we'll use the Gregory-Leibniz series... This can take a while...")
 
-	limit = series_limit()
+    decimals = how_many_decimals()
+    print_setup(decimals, method)
 
-	gl_pi = gregory_leibniz_series(limit)
+    limit = series_limit()
 
-	print("Here you go:")
-	print(round(gl_pi,decimals))
+    gl_pi = gregory_leibniz_series(limit)
 
-if method[0].lower() == 'n':
-	print("Okay, we'll use the Nilakantha series... This can take a while...")
+    print("Here you go:")
+    print(round(gl_pi, decimals))
 
-	decimals = how_many_decimals()
-	print_setup(decimals,method)
+if method[0].lower() == "n":
+    print("Okay, we'll use the Nilakantha series... This can take a while...")
 
-	limit = series_limit()
+    decimals = how_many_decimals()
+    print_setup(decimals, method)
 
-	nil_series = nilakantha_series(limit)
+    limit = series_limit()
 
-	print("Here you go:")
-	print(round(nil_series,decimals))
+    nil_series = nilakantha_series(limit)
+
+    print("Here you go:")
+    print(round(nil_series, decimals))

@@ -1,4 +1,7 @@
-"""Implementation of tea mug:
+"""
+
+Implementation of tea mug:
+
 var tea = new tea
 
 if (tea.IsEmpty())
@@ -42,6 +45,7 @@ class Tea:
 tea = Tea("full")
 
 for n in range(number_of_cups):
+    # here we go
     if tea.IsEmpty():
         tea.Refill()
     else:
