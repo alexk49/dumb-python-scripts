@@ -1,0 +1,15 @@
+[submodule "gaifers"]
+	path = gaifers
+	url = git@github.com:alexk49/gaifers.git
+[submodule "lookup"]
+	path = lookup
+	url = git@github.com:alexk49/lookup.git
+[submodule "leave_a_note"]
+	path = leave_a_note
+	url = git@github.com:alexk49/leave_a_note.git
+[submodule "pom"]
+	path = pom
+	url = git@github.com:alexk49/pom.git
+[submodule "bookshelves"]
+	path = bookshelves
+	url = git@github.com:alexk49/bookshelves.git
